@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanat Spain — Центр поддержки женщин</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-rose-100 selection:text-rose-900">
+
+    <!-- Emergency Safe Exit Bar -->
+    <div class="bg-rose-900 text-white px-4 py-2 text-xs md:text-sm flex justify-between items-center sticky top-0 z-50 shadow-md">
+        <div class="flex items-center space-x-2 truncate">
+            <i class="fa-solid fa-triangle-exclamation text-amber-300 animate-pulse"></i>
+            <span data-i18n="emergency_banner">Línea de emergencia / Экстренная линия: <strong>016</strong> (бесплатно, анонимно)</span>
+        </div>
+        <button onclick="safeExit()" class="bg-white text-rose-900 hover:bg-stone-100 font-bold px-3 py-1 rounded transition text-xs flex items-center space-x-1 shrink-0">
+            <i class="fa-solid fa-person-running"></i>
+            <span data-i18n="safe_exit">Быстрый выход (ESC)</span>
+        </button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="bg-white border-b border-stone-200 sticky top-[37px] md:top-[41px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center gap-4">
+            
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-rose-900 text-amber-100 flex items-center justify-center font-bold text-xl shadow-sm">
+                    <i class="fa-solid fa-shield-heart text-amber-200"></i>
+                </div>
+                <div>
+                    <span class="text-lg md:text-xl font-extrabold tracking-tight text-stone-950 block leading-none">Amanat Spain</span>
+                    <p class="text-[10px] md:text-xs text-stone-500 font-medium mt-1 truncate" data-i18n="subtitle">Орталық • Поддержка • Centro</p>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center space-x-6 font-semibold text-xs uppercase tracking-wider text-stone-600">
+                <a href="#about" class="hover:text-rose-800 transition" data-i18n="nav_about">О нас</a>
+                <a href="#services" class="hover:text-rose-800 transition" data-i18n="nav_services">Наша помощь</a>
+                <a href="#laws" class="hover:text-rose-800 transition" data-i18n="nav_laws">Законы и Права</a>
+                <a href="#presentations" class="hover:text-rose-800 transition text-rose-800 font-bold" data-i18n="nav_presentations">Презентации</a>
+                <a href="#experts" class="hover:text-rose-800 transition" data-i18n="nav_experts">Специалисты</a>
+                <a href="#faq" class="hover:text-rose-800 transition">FAQ</a>
+            </nav>
+
+            <!-- Language Switcher & CTA -->
+            <div class="flex items-center space-x-3 shrink-0">
+                <div class="flex bg-stone-100 p-1 rounded-xl border border-stone-200 text-xs font-bold">
+                    <button onclick="setLang('ru')" id="btn-ru" class="px-2.5 py-1 rounded-lg bg-white shadow-sm text-stone-900 transition">RU</button>
+                    <button onclick="setLang('kk')" id="btn-kk" class="px-2.5 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition">KZ</button>
+                    <button onclick="setLang('es')" id="btn-es" class="px-2.5 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition">ES</button>
+                </div>
+                <a href="#help" class="hidden sm:inline-block bg-rose-800 hover:bg-rose-900 text-white px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-sm" data-i18n="cta_help">
+                    Помощь
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative bg-gradient-to-b from-stone-100 to-stone-50 py-16 lg:py-24 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center gap-2 py-1 px-3.5 rounded-full text-xs font-bold bg-rose-100 text-rose-900 mb-6 border border-rose-200">
+                    <i class="fa-solid fa-user-shield text-rose-700"></i> <span data-i18n="hero_badge">Безопасность • Конфиденциальность • Защита</span>
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight mb-6" data-i18n="hero_title">
+                    Вы не одна. Мы поможем вам в Испании.
+                </h1>
+                <p class="text-base sm:text-lg text-stone-600 mb-8 leading-relaxed font-medium" data-i18n="hero_desc">
+                    Интеграционный и правозащитный центр поддержки иммигранток из Казахстана. Профессиональная юридическая защита, кризисная психологическая помощь и безопасность без депортации.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#help" class="inline-flex justify-center items-center bg-rose-800 hover:bg-rose-900 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-md text-sm uppercase tracking-wider" data-i18n="hero_btn_primary">
+                        Получить защиту
+                    </a>
+                    <a href="#presentations" class="inline-flex justify-center items-center bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 font-bold px-6 py-3.5 rounded-xl transition text-sm uppercase tracking-wider">
+                        Презентации и материалы
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 uppercase tracking-tight mb-4" data-i18n="services_title">Чем мы помогаем</h2>
+                <p class="text-stone-600 font-medium text-sm sm:text-base" data-i18n="services_subtitle">Комплексное сопровождение на русском и казахском языках с учетом законодательства Испании.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-scale-balanced text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s1_t">Юридическая защита</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s1_d">Сопровождение в полицию (Policía Nacional), оформление охранного ордера (Orden de Alejamiento) и защита в специализированных судах по гендерному насилию.</p>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-id-card text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s2_t">Легализация без депортации</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s2_d">Подача документов на ВНЖ по исключительным обстоятельствам (Autorización por circunstancias excepcionales) вне зависимости от наличия визы.</p>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-brain text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s3_t">Психологическая помощь</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s3_d">Индивидуальная кризисная терапия, преодоление травмы, поддержка при депрессии и сопровождение адаптации в новой социокультурной среде.</p>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-house-chimney-medical text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s4_t">Безопасное укрытие (Shelter)</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s4_d">Помощь с предоставлением временного безопасного жилья в Испании через государственные и муниципальные центры (Centros de Acogida).</p>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-hands-holding-child text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s5_t">Защита прав детей</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s5_d">Оформление детей в школы Испании, медицинское обслуживание и правовое определение опеки при кризисных разводах.</p>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 p-8 rounded-2xl hover:border-rose-300 transition">
+                    <i class="fa-solid fa-language text-3xl text-rose-800 mb-5"></i>
+                    <h3 class="text-lg font-bold text-stone-900 mb-3" data-i18n="s6_t">Перевод и сопровождение</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed" data-i18n="s6_d">Языковое сопровождение при подаче заявления в полицию, судах, медицинских учреждениях и органах социальной защиты (Servicios Sociales).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laws Section -->
+    <section id="laws" class="py-20 bg-stone-100 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-rose-800 bg-rose-100 px-3 py-1 rounded-full mb-3 inline-block">Законодательная база</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 uppercase tracking-tight" data-i18n="laws_title">Законы и Ваши права в Испании</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-rose-800 font-extrabold text-2xl block mb-2">01</span>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Ley Orgánica 1/2004</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">Органический закон о комплексных мерах против гендерного насилия. Гарантирует право на бесплатного адвоката, синхронного переводчика, психологическую помощь и приоритетное финансовое пособие (RAI).</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-rose-800 font-extrabold text-2xl block mb-2">02</span>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Статус Extranjería (Закон об иностранцах)</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">Согласно ст. 31 bis Закона об иностранцах, обращение жертвы насилия в полицию <strong>НЕ влечет депортации</strong> или штрафа за нелегальное пребывание. Заведение дела о депортации временно замораживается.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                    <span class="text-rose-800 font-extrabold text-2xl block mb-2">03</span>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Orden de Protección (Охранный ордер)</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">Судебное решение, которое предписывает запрет на приближение и контакты (Orden de Alejamiento), выселение агрессора из общего жилья и временное назначение алиментов и опеки над детьми.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Section -->
+    <section id="presentations" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-rose-800 bg-rose-100 px-3 py-1 rounded-full mb-3 inline-block">Материалы</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 uppercase tracking-tight" data-i18n="pres_title">Презентации и исследования</h2>
+                </div>
+                <button onclick="toggleUploadModal()" class="bg-rose-800 hover:bg-rose-900 text-white font-bold px-5 py-3 rounded-xl transition text-xs uppercase tracking-wider shadow-sm flex items-center space-x-2 shrink-0">
+                    <i class="fa-solid fa-plus"></i>
+                    <span data-i18n="btn_add_presentation">Добавить свою презентацию</span>
+                </button>
+            </div>
+
+            <!-- Upload Modal -->
+            <div id="uploadModal" class="hidden fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-stone-200 relative">
+                    <button onclick="toggleUploadModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600 text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h3 class="text-lg font-extrabold text-stone-900 uppercase mb-4" data-i18n="modal_title">Загрузить презентацию</h3>
+                    
+                    <form onsubmit="addPresentation(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-700 mb-1" data-i18n="field_title">Название презентации</label>
+                            <input type="text" id="presTitle" required placeholder="Законы и защита женщин в Испании" class="w-full border border-stone-300 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-rose-800">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-700 mb-1" data-i18n="field_author">Автор</label>
+                            <select id="presAuthor" class="w-full border border-stone-300 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-rose-800">
+                                <option value="Қалдыбатыр Камила">Қалдыбатыр Камила</option>
+                                <option value="Темірхан Нұрай">Темірхан Нұрай</option>
+                                <option value="Amanat Spain">Amanat Spain</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-700 mb-1" data-i18n="field_desc">Описание</label>
+                            <textarea id="presDesc" rows="3" required placeholder="Описание..." class="w-full border border-stone-300 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-rose-800"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-700 mb-1" data-i18n="field_file">Файл или ссылка</label>
+                            <input type="file" id="presFile" accept=".pdf,.pptx,.ppt" class="w-full text-xs text-stone-500 mb-2">
+                            <input type="url" id="presUrl" placeholder="Ссылка (Google Slides / Canva)" class="w-full border border-stone-300 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-rose-800">
+                        </div>
+                        <button type="submit" class="w-full bg-rose-800 hover:bg-rose-900 text-white font-bold py-3 rounded-xl transition text-xs uppercase tracking-wider" data-i18n="modal_submit">
+                            Опубликовать
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Presentations Grid -->
+            <div id="presentationsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- Specialists Section -->
+    <section id="experts" class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 uppercase tracking-tight mb-4" data-i18n="experts_title">Наши Специалисты</h2>
+                <p class="text-stone-600 text-xs sm:text-sm font-medium">Профессионалы, готовые оказать помощь с полным пониманием правовых и психологических нюансов.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Kamila -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-rose-900 text-amber-200 flex items-center justify-center text-xl font-black shrink-0 border border-rose-800">
+                                ҚК
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-stone-900 leading-snug">Қалдыбатыр Камила</h3>
+                                <p class="text-rose-800 text-xs font-bold uppercase tracking-wider mt-1" data-i18n="spec_1_role">Юрист по иммиграционным правам</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 text-xs leading-relaxed mb-6 font-medium" data-i18n="spec_1_desc">
+                            Специалист по миграционному законодательству Испании (Extranjería) и защите прав женщин. Сопровождение процедур получения ВНЖ по исключительным обстоятельствам, взаимодействие с судами и полицией.
+                        </p>
+                    </div>
+                    <a href="#help" class="block text-center bg-stone-100 hover:bg-stone-200 text-stone-900 font-bold py-3 rounded-xl transition text-xs uppercase tracking-wider">
+                        Записаться к юридическому советнику
+                    </a>
+                </div>
+
+                <!-- Nurai -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-amber-800 text-amber-100 flex items-center justify-center text-xl font-black shrink-0 border border-amber-700">
+                                ТН
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-stone-900 leading-snug">Темірхан Нұрай</h3>
+                                <p class="text-amber-900 text-xs font-bold uppercase tracking-wider mt-1" data-i18n="spec_2_role">Кризисный психолог</p>
+                            </div>
+                        </div>
+                        <p class="text-stone-600 text-xs leading-relaxed mb-6 font-medium" data-i18n="spec_2_desc">
+                            Эксперт по психологической адаптации и преодолению ПТСР при абьюзивных отношениях. Кризисное консультирование, работа с тревожностью, травмами и депрессией в условиях эмиграции.
+                        </p>
+                    </div>
+                    <a href="#help" class="block text-center bg-stone-100 hover:bg-stone-200 text-stone-900 font-bold py-3 rounded-xl transition text-xs uppercase tracking-wider">
+                        Записаться к психологу
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white border-t border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-stone-900 uppercase tracking-tight text-center mb-12">Часто задаваемые вопросы (FAQ)</h2>
+            <div class="space-y-4">
+                <details class="group bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                    <summary class="font-bold text-stone-900 text-sm cursor-pointer list-none flex justify-between items-center">
+                        <span>Депортируют ли меня, если я обращусь в полицию без визы/документов?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-stone-600 text-xs mt-4 leading-relaxed">
+                        <strong>Нет.</strong> В Испании закон гарантирует абсолютную защиту жертвам гендерного насилия. Статья 31 bis Закона об иностранцах приостанавливает любые административные дела по нелегальному пребыванию.
+                    </p>
+                </details>
+                <details class="group bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                    <summary class="font-bold text-stone-900 text-sm cursor-pointer list-none flex justify-between items-center">
+                        <span>Заберут ли у меня детей при обращении в соцслужбы?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-stone-600 text-xs mt-4 leading-relaxed">
+                        <strong>Нет.</strong> Социальные службы Испании (Servicios Sociales) направлены на защиту матери и ребенка. Вам предоставится совместное жилье, материальная помощь и юридическое оформление прав опеки.
+                    </p>
+                </details>
+                <details class="group bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                    <summary class="font-bold text-stone-900 text-sm cursor-pointer list-none flex justify-between items-center">
+                        <span>Я не говорю по-испански, как мне подать заявление?</span>
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="text-stone-600 text-xs mt-4 leading-relaxed">
+                        По закону вам обязан предоставить переводчика как номер 016, так и полиция и суд. Наша команда также помогает с первичным сопровождением.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Form Section -->
+    <section id="help" class="py-20 bg-stone-900 text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight mb-4" data-i18n="form_title">Запросить анонимную помощь</h2>
+                <p class="text-stone-400 text-xs sm:text-sm font-medium" data-i18n="form_subtitle">Заполните форму. Все данные строжайше защищены и не передаются третьим лицам.</p>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('Ваш запрос безопасно отправлен. Мы свяжемся с вами.');" class="space-y-6 bg-stone-800 p-8 rounded-2xl border border-stone-700">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-stone-300 mb-2" data-i18n="form_name">Имя или Псевдоним</label>
+                    <input type="text" required class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-500">
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2" data-i18n="form_contact">WhatsApp / Телефон / Telegram</label>
+                        <input type="text" required class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2" data-i18n="form_specialist">Специалист</label>
+                        <select class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-500">
+                            <option>Қалдыбатыр Камила (Юридический вопрос)</option>
+                            <option>Темірхан Нұрай (Психологическая помощь)</option>
+                            <option>Срочная помощь / Любой специалист</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-stone-300 mb-2" data-i18n="form_message">Сообщение</label>
+                    <textarea rows="4" class="w-full bg-stone-900 border border-stone-700 rounded-xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-rose-800 hover:bg-rose-900 text-white font-bold py-4 rounded-xl transition text-xs uppercase tracking-widest" data-i18n="form_submit">
+                    Отправить конфиденциально
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div>
+                <span class="text-white font-extrabold text-base uppercase tracking-wider">Amanat Spain</span>
+                <p class="text-stone-500 mt-1" data-i18n="footer_rights">© 2026 Все права защищены. Midterm Project — Поддержка женщин из Казахстана в Испании.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="tel:016" class="hover:text-white transition font-bold">016 (Испания)</a>
+                <a href="tel:112" class="hover:text-white transition font-bold">112 (Экстренная)</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+        let presentationsList = [
+            {
+                id: 1,
+                title: "Права женщин и иммиграционное законодательство в Испании",
+                author: "Қалдыбатыр Камила",
+                desc: "Детальный разбор Закона 1/2004, подача заявлений и защита женщин без документов.",
+                fileUrl: "#"
+            },
+            {
+                id: 2,
+                title: "Психологическая адаптация и преодоление кризиса",
+                author: "Темірхан Нұрай",
+                desc: "Методы работы с посттравматическим стрессом и алгоритмы эмоциональной безопасности.",
+                fileUrl: "#"
+            }
+        ];
+
+        function renderPresentations() {
+            const grid = document.getElementById('presentationsGrid');
+            grid.innerHTML = '';
+            presentationsList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white border border-stone-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-rose-100 text-rose-900 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md">Presentation</span>
+                            <i class="fa-solid fa-file-powerpoint text-xl text-rose-800"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-stone-900 mb-2 leading-snug">${item.title}</h3>
+                        <p class="text-stone-600 text-xs mb-6 font-medium">${item.desc}</p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs">
+                        <span class="text-stone-500 font-bold">${item.author}</span>
+                        <a href="${item.fileUrl}" target="_blank" download class="text-rose-800 font-bold hover:underline flex items-center space-x-1">
+                            <i class="fa-solid fa-download"></i> <span>Скачать</span>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleUploadModal() {
+            document.getElementById('uploadModal').classList.toggle('hidden');
+        }
+
+        function addPresentation(e) {
+            e.preventDefault();
+            const title = document.getElementById('presTitle').value;
+            const author = document.getElementById('presAuthor').value;
+            const desc = document.getElementById('presDesc').value;
+            const fileInput = document.getElementById('presFile');
+            const urlInput = document.getElementById('presUrl').value;
+
+            let fileUrl = "#";
+            if (fileInput.files.length > 0) {
+                fileUrl = URL.createObjectURL(fileInput.files[0]);
+            } else if (urlInput.trim() !== "") {
+                fileUrl = urlInput;
+            }
+
+            presentationsList.push({ id: Date.now(), title, author, desc, fileUrl });
+            renderPresentations();
+            toggleUploadModal();
+            
+            document.getElementById('presTitle').value = '';
+            document.getElementById('presDesc').value = '';
+            document.getElementById('presFile').value = '';
+            document.getElementById('presUrl').value = '';
+        }
+
+        const translations = {
+            ru: {
+                emergency_banner: "Línea de emergencia / Экстренная линия: <strong>016</strong> (бесплатно, анонимно)",
+                safe_exit: "Быстрый выход (ESC)", subtitle: "Орталық • Поддержка • Centro",
+                nav_about: "О нас", nav_services: "Наша помощь", nav_laws: "Законы и Права", nav_presentations: "Презентации", nav_experts: "Специалисты",
+                cta_help: "Помощь", hero_badge: "Безопасность • Конфиденциальность • Защита",
+                hero_title: "Вы не одна. Мы поможем вам в Испании.",
+                hero_desc: "Интеграционный и правозащитный центр поддержки иммигранток из Казахстана. Профессиональная юридическая защита, кризисная психологическая помощь и безопасность без депортации.",
+                hero_btn_primary: "Получить защиту", services_title: "Чем мы помогаем",
+                services_subtitle: "Комплексное сопровождение на русском и казахском языках с учетом законодательства Испании.",
+                s1_t: "Юридическая защита", s1_d: "Сопровождение в полицию (Policía Nacional), оформление охранного ордера (Orden de Alejamiento) и защита в специализированных судах.",
+                s2_t: "Легализация без депортации", s2_d: "Подача документов на ВНЖ по исключительным обстоятельствам вне зависимости от наличия визы.",
+                s3_t: "Психологическая помощь", s3_d: "Индивидуальная кризисная терапия, преодоление травмы, поддержка при депрессии и адаптация.",
+                s4_t: "Безопасное укрытие (Shelter)", s4_d: "Помощь с предоставлением временного безопасного жилья в Испании через государственные центры.",
+                s5_t: "Защита прав детей", s5_d: "Оформление детей в школы Испании, медицинское обслуживание и правовое определение опеки.",
+                s6_t: "Перевод и сопровождение", s6_d: "Языковое сопровождение при подаче заявления в полицию, судах, больницах и органах соцзащиты.",
+                laws_title: "Законы и Ваши права в Испании", pres_title: "Презентации и исследования",
+                btn_add_presentation: "Добавить свою презентацию", modal_title: "Загрузить презентацию",
+                field_title: "Название презентации", field_author: "Автор", field_desc: "Описание", field_file: "Файл или ссылка",
+                modal_submit: "Опубликовать", experts_title: "Наши Специалисты",
+                spec_1_role: "Юрист по иммиграционным правам", spec_1_desc: "Специалист по миграционному законодательству Испании (Extranjería) и защите прав женщин. Сопровождение процедур получения ВНЖ.",
+                spec_2_role: "Кризисный психолог", spec_2_desc: "Эксперт по психологической адаптации и преодолению ПТСР при абьюзивных отношениях. Консультирование и работа с травмами.",
+                form_title: "Запросить анонимную помощь", form_subtitle: "Заполните форму. Все данные строжайше защищены.",
+                form_name: "Имя или Псевдоним", form_contact: "WhatsApp / Телефон / Telegram", form_specialist: "Специалист", form_message: "Сообщение", form_submit: "Отправить конфиденциально",
+                footer_rights: "© 2026 Все права защищены. Midterm Project — Поддержка женщин из Казахстана в Испании."
+            },
+            kk: {
+                emergency_banner: "Испаниядағы шұғыл желі: <strong>016</strong> (тегін, анонимді)",
+                safe_exit: "Жылдам шығу (ESC)", subtitle: "Орталық • Поддержка • Centro",
+                nav_about: "Біз туралы", nav_services: "Көмек түрлері", nav_laws: "Заңдар мен Құқықтар", nav_presentations: "Презентациялар", nav_experts: "Мамандар",
+                cta_help: "Көмек", hero_badge: "Қауіпсіздік • Құпиялылық • Қорғау",
+                hero_title: "Сіз жалғыз емессіз. Біз Испанияда сізге көмектесеміз.",
+                hero_desc: "Қазақстаннан келген әйелдерді қолдау орталығы. Депортациясыз заңгерлік қорғау, дағдарыстық психологикалық көмек және қауіпсіздік.",
+                hero_btn_primary: "Қорғау алу", services_title: "Біздің көмегіміз",
+                services_subtitle: "Қазақ және орыс тілдеріндегі кешенді қолдау.",
+                s1_t: "Заңгерлік қорғау", s1_d: "Полицияда (Policía Nacional), соттарда сүйемелдеу және қорғау ордерін (Orden de Alejamiento) алу.",
+                s2_t: "Депортациясыз заңдастыру", s2_d: "Визаның болуына қарамастан ерекше жағдайлар бойынша тұруға рұқсатқа (ВНЖ) құжат тапсыру.",
+                s3_t: "Психологиялық көмек", s3_d: "Травмаларды жеңу, стресс пен депрессия кезіндегі дағдарыстық терапия.",
+                s4_t: "Қауіпсіз баспана (Shelter)", s4_d: "Мемлекеттік орталықтар арқылы Испанияда уақытша қауіпсіз баспанамен қамтамасыз ету.",
+                s5_t: "Балалар құқығын қорғау", s5_d: "Балаларды мектепке орналастыру, медициналық көмек және қамқоршылықты анықтау.",
+                s6_t: "Аударма және сүйемелдеу", s6_d: "Полицияда, сотта, ауруханаларда және әлеуметтік қызметтерде аудармашылық көмек.",
+                laws_title: "Испания Заңдары мен Құқықтарыңыз", pres_title: "Презентациялар мен материалдар",
+                btn_add_presentation: "Өз презентацияңды қосу", modal_title: "Презентация жүктеу",
+                field_title: "Презентация атауы", field_author: "Авторы", field_desc: "Сипаттамасы", field_file: "Файл немесе сілтеме",
+                modal_submit: "Жариялау", experts_title: "Біздің Мамандар",
+                spec_1_role: "Иммиграциялық құқықтар жөніндегі заңгер", spec_1_desc: "Испания заңнамасы бойынша маманданған заңгер. Тұруға рұқсат (ВНЖ) алу процестерін сүйемелдеу.",
+                spec_2_role: "Дағдарыс психологы", spec_2_desc: "Психологиялық бейімделу және травмаларды жеңу бойынша сарапшы.",
+                form_title: "Құпия көмек сұрау", form_subtitle: "Форманы толтырыңыз. Барлық деректер толықтай қорғалған.",
+                form_name: "Атыңыз немесе Лақап атыңыз", form_contact: "WhatsApp / Телефон / Telegram", form_specialist: "Маман", form_message: "Хабарлама", form_submit: "Құпия түрде жіберу",
+                footer_rights: "© 2026 Барлық құқықтар қорғалған. Midterm Project — Испаниядағы қазақстандық әйелдерді қолдау."
+            },
+            es: {
+                emergency_banner: "Línea de emergencia / Экстренная линия: <strong>016</strong> (gratuito, anónimo)",
+                safe_exit: "Salida rápida (ESC)", subtitle: "Орталық • Поддержка • Centro",
+                nav_about: "Nosotros", nav_services: "Servicios", nav_laws: "Leyes y Derechos", nav_presentations: "Presentaciones", nav_experts: "Especialistas",
+                cta_help: "Ayuda", hero_badge: "Seguridad • Confidencialidad • Protección",
+                hero_title: "No estás sola. Te ayudamos en España.",
+                hero_desc: "Centro de apoyo e integración para mujeres de Kazajistán en España. Protección legal sin riesgo de deportación y apoyo psicológico.",
+                hero_btn_primary: "Obtener protección", services_title: "Nuestros Servicios",
+                services_subtitle: "Atención integral en ruso y kazajo ajustada a la legislación española.",
+                s1_t: "Protección Legal", s1_d: "Acompañamiento ante la Policía Nacional, obtención de Orden de Alejamiento y representación en juzgados.",
+                s2_t: "Regularización", s2_d: "Solicitud de residencia por circunstancias excepcionales sin importar la situación visarial.",
+                s3_t: "Apoyo Psicológico", s3_d: "Terapia de crisis, superación del trauma, manejo del estrés y adaptación en España.",
+                s4_t: "Alojamiento Seguro", s4_d: "Gestión de plazas en centros de acogida de emergencia en España.",
+                s5_t: "Protección del Menor", s5_d: "Escolarización, atención médica y definición legal de la custodia.",
+                s6_t: "Traducción y Acompañamiento", s6_d: "Asistencia lingüística en comisarías, juzgados, hospitales y Servicios Sociales.",
+                laws_title: "Leyes y Derechos en España", pres_title: "Presentaciones e Investigaciones",
+                btn_add_presentation: "Añadir presentación", modal_title: "Subir presentación",
+                field_title: "Título", field_author: "Autora", field_desc: "Descripción", field_file: "Archivo o Enlace",
+                modal_submit: "Publicar", experts_title: "Especialistas",
+                spec_1_role: "Abogada de Extranjería", spec_1_desc: "Especialista en derecho de extranjería e igualdad de género. Gestión de autorizaciones de residencia.",
+                spec_2_role: "Psicóloga de Crisis", spec_2_desc: "Experta en trauma y adaptación cultural. Acompañamiento psicológico integral.",
+                form_title: "Solicitar Ayuda Confidencial", form_subtitle: "Rellena el formulario. Tus datos están totalmente protegidos.",
+                form_name: "Nombre o Seudónimo", form_contact: "WhatsApp / Teléfono / Telegram", form_specialist: "Especialista", form_message: "Mensaje", form_submit: "Enviar confidencialmente",
+                footer_rights: "© 2026 Todos los derechos reservados. Midterm Project — Apoyo a mujeres en España."
+            }
+        };
+
+        function setLang(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            ['ru', 'kk', 'es'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (btn) btn.className = (l === lang) ? "px-2.5 py-1 rounded-lg bg-white shadow-sm text-stone-900 transition" : "px-2.5 py-1 rounded-lg text-stone-500 hover:text-stone-900 transition";
+            });
+        }
+
+        function safeExit() {
+            window.location.replace('https://www.google.com');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') safeExit();
+        });
+
+        renderPresentations();
+    </script>
+</body>
+</html>
